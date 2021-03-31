@@ -25,27 +25,32 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
+// 解题思路：
+// 创建一个map，[key，value] 键是数组中的成员，值是出现的次数
+// 在创建的过程中先判断map中是否已经有这个key了，有的话就在value上加1即可
+// 如果没有这个key就创建这个key，并初始value为1
+// 最后返回根据value降序的数组，并用map重新构建一个数组返回前k项
 
-/**
- * 
- * @param {Array} nums 
- * @param {Number} k 
- * @returns {Array}
- */
+// /**
+//  * 
+//  * @param {Array} nums 
+//  * @param {Number} k 
+//  * @returns {Array}
+//  */
 
-var topKFrequent = function(nums, k) {
-  const map = new Map();
-  for (const num of nums) {
-    let count = map.get(num)==null ? 0 : map.get(num);
-    map.set(num, count+1);
-  }
-  return [...map]
-  .sort((a,b) => {
-    return b[1] - a[1];
-  })
-  .map(item=>{
-    return item[0]
-  })
-  .slice(0,k);
-};
+// var topKFrequent = function(nums, k) {
+//   const map = new Map();
+//   for (const num of nums) {
+//     let count = map.get(num)==null ? 0 : map.get(num);
+//     map.set(num, count+1);
+//   }
+//   return [...map]
+//   .sort((a,b) => {
+//     return b[1] - a[1];
+//   })
+//   .map(item=>{
+//     return item[0]
+//   })
+//   .slice(0,k);
+// };
 
