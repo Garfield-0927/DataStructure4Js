@@ -126,6 +126,92 @@ bst.insert(25)
 bst.insert(6)
 
 // console.log(bst);
-bst.preOrderTraverse(bst.root)
+// bst.preOrderTraverse(bst.root)
 // bst.midOrderTraverse(bst.root)
 // bst.postOrderTraverse(bst.root)
+
+// const str = " do re  mi   fa   " 
+// function reverseByWord(str = '') {
+//   	const strArr = str.split('')
+//     console.log(strArr);
+    
+//     let copy = strArr.reverse();
+//     copy.push(" ");
+//     let temp = []
+//     for (let i=0; i<copy.length; i++) {
+//       if (copy[i] !== " ") {
+//         temp.push(copy[i])
+//       }
+//       else{
+//         let length = temp.length;
+//         for (let j = 0; j<temp.length;j++) {
+
+//           copy[i-temp.length+j] = temp[length - 1 - j ]
+//         }
+
+//         temp = [];
+//       }
+//     }
+
+//     copy.pop()
+//     console.log(copy);
+//     return strArr.join('')
+// }
+
+// reverseByWord(str)
+
+
+
+function task1(cb) {
+  setTimeout(() => {
+      console.log(1)
+      cb()
+  }, 1000)
+}
+function task2(cb) {
+  setTimeout(() => {
+    console.log(2)
+    cb()
+  }, 2000)
+}
+function task3(cb) {
+  setTimeout(() => {
+    console.log(3)
+    cb()
+  }, 500)
+}
+
+// threadPollExe([task1,task1,task3],2)    // 1 3 2
+// threadPollExe([task1,task1,task3],3)    // 3 1 2
+
+
+// function threadPollExe(arr, num){
+
+//   let onGoing = 0;
+//   let poll = [];
+  
+//   for(let fn of arr){
+//     poll.push(fn)
+//   }
+//   console.log(poll);
+//   while (poll.length!==0) {
+//     executeNext();
+//   }
+
+//   function executeNext(){
+//     if (onGoing>=num) {
+//       return ;
+//     } else {
+//       let pro = poll.shift();
+//       console.log(pro);
+//       pro()
+//       onGoing++;
+//     }
+//   }
+
+// }
+
+// threadPollExe([task1,task1,task3],1)    // 1 2 3
+
+
+
