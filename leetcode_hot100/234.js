@@ -24,10 +24,21 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
-function ListNode(val, next) {
-  this.val = (val === undefined ? 0 : val)
-  this.next = (next === undefined ? null : next)
-}
+// function ListNode(val, next) {
+//   this.val = (val === undefined ? 0 : val)
+//   this.next = (next === undefined ? null : next)
+// }
+
+// 解体思路：
+// 首先用快慢指针找出链表的中点
+// 随后将中点后面的部分反转过来
+// 最后在和前面的链表进行比较
+// 反转过程：
+// 1->2->3->4->null
+// 1<-2<-3<-4<-null
+// 就是用一个临时变量记录下一个指针位置
+// 然后将当前指针的next设置为前面一个指针的位置
+
 /**
  * @param {ListNode} head
  * @return {boolean}
