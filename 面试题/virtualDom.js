@@ -31,7 +31,7 @@ function render(parentNode, childNode){
 	childNode.props!=null && Object.keys(childNode.props).forEach(key=>{
 		ele.setAttribute(key, childNode.props[key]);
 	});
-	if (childNode.children.length === 1){
+	if (typeof(childNode.children[0])==='string'){
 		ele.innerHTML = childNode.children[0];
 	} else {
 		for (const item of childNode.children) {
@@ -44,7 +44,7 @@ function render(parentNode, childNode){
 
 let domNode = {
 	tagName: 'ul',
-	props: { class: 'list' },
+	props: { class: 'list', id: 'list' },
 	children: [{
 		tagName: 'li',
 		children: ['toutiao']
