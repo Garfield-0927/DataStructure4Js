@@ -56,7 +56,6 @@ var combinationSum3 = function (k, n) {
     dfs(1, n, k, []);
   }
   comb(9, k);
-  return res.filter(item => item.reduce((pre, cur) => pre + cur) === n
-  )
+  return res.filter(item => item.reduce((pre, cur) => pre + cur) === n)
 };
 console.log(combinationSum3(3,7));
