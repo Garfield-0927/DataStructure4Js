@@ -8,25 +8,25 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     if (prereq[0] === prereq[1]) {
       return false;
     }
-    map.set(prereq[0], [prereq[1]]);
+    map.set(prereq[0], [...map.get(prereq[0]), prereq[1]]);
   }
 
   const inDegreeMap = calInDegree(map);
+  console.log(map);
+  console.log('======================');
+  console.log(inDegreeMap);
+  console.log('======================');
 
-  while (isEnd(inDegreeMap)) {
+  while (!isEnd(inDegreeMap)) {
     deleteNode(map, inDegreeMap);
   }
 
-  return true;
+  console.log(map);
+  console.log('======================');
+  console.log(inDegreeMap);
+  return inDegreeMap.size === 0;
 }
 
-
-
-/**
- * 计算每个点的入度
- * @param map 邻接表
- * @returns 入度的map
- */
 function calInDegree(map: Map<number, number[]>): Map<number, number> {
   const inDegreeMap = new Map<number, number>();
   for (let i = 0; i < map.size; i++) {
@@ -41,48 +41,34 @@ function calInDegree(map: Map<number, number[]>): Map<number, number> {
   return inDegreeMap;
 }
 
-
-/**
- * 删除入度为0的节点
- * @param map 邻接表
- * @param inDegreeMap 入度表
- */
 function deleteNode(
   map: Map<number, number[]>,
   inDegreeMap: Map<number, number>
 ): void {
   for (let [key, val] of inDegreeMap) {
     if (val === 0) {
-      for (let item of map.get(key)) {
+      for (let item of map.get(key) as Array<number>) {
         inDegreeMap.set(item, (inDegreeMap.get(item) as number) - 1);
       }
+      inDegreeMap.delete(key);
       map.delete(key);
     }
   }
 }
 
-/**
- * 判断是否还存在入度为0的节点
- * @param map 
- * @returns 
- */
 function isEnd(map: Map<number, number>): boolean {
   for (let item of map.values()) {
     if (item === 0) {
-      return true;
+      return false;
     }
   }
-  return false;
+  return true;
 }
 
 console.log(
-  canFinish(20, [
-    [0, 10],
-    [3, 18],
-    [6, 11],
-    [11, 14],
-    [13, 1],
-    [15, 1],
-    [17, 4],
+  canFinish(3, [
+    [1, 0],
+    [1, 2],
+    [0, 1],
   ])
 );
