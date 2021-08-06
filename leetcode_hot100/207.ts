@@ -10,20 +10,10 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     }
     map.set(prereq[0], [...map.get(prereq[0]), prereq[1]]);
   }
-
   const inDegreeMap = calInDegree(map);
-  console.log(map);
-  console.log('======================');
-  console.log(inDegreeMap);
-  console.log('======================');
-
   while (!isEnd(inDegreeMap)) {
     deleteNode(map, inDegreeMap);
   }
-
-  console.log(map);
-  console.log('======================');
-  console.log(inDegreeMap);
   return inDegreeMap.size === 0;
 }
 
@@ -65,10 +55,3 @@ function isEnd(map: Map<number, number>): boolean {
   return true;
 }
 
-console.log(
-  canFinish(3, [
-    [1, 0],
-    [1, 2],
-    [0, 1],
-  ])
-);
