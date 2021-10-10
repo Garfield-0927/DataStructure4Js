@@ -9,19 +9,40 @@
 // 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
 // 使用map，有额外空间
+// function singleNumber(nums: number[]): number {
+//   const map = new Map();
+
+//   for (const item of nums) {
+//     map.set(item, map.get(item) == null ? 1 : map.get(item) + 1);
+//   }
+//   console.log(map);
+//   let res = null;
+//   map.forEach((val, key) => {
+//     if (val === 1) {
+//       res = key;
+//     }
+//   });
+//   return res
+// }
+
 function singleNumber(nums: number[]): number {
-  const map = new Map();
-  
-  for (const item of nums) {
-    map.set(item, map.get(item) == null ? 1 : map.get(item) + 1);
-  }
-  console.log(map);
-  let res = null;
-  map.forEach((val, key) => {
-    if (val === 1) {
-      res = key;
+  let temp = 0;
+  nums.sort((a, b) => a - b);
+  console.log(nums);
+
+  for (let i = 0; i < nums.length; i++) {
+    if (!(i % 2)) {
+      temp += nums[i];
+    } else {
+      temp -= nums[i];
+      if (temp !== 0) {
+        return nums[i - 1];
+      }
     }
-  });
-  return res
+    console.log(temp);
+
+
+  }
+  return nums[nums.length - 1];
 }
 console.log(singleNumber([4, 1, 2, 1, 2]));
