@@ -2,7 +2,7 @@
  * Definition for a binary tree node.
  *
  */
-class TreeNode {
+export class TreeNode {
   val: number;
   left: TreeNode | null;
   right: TreeNode | null;
