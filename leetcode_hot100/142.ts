@@ -33,19 +33,19 @@ function detectCycle(head: ListNode | null): ListNode | null {
   let ptr1 = head;
   let ptr2 = ptr1;
   let flag = 0;
-  while(ptr1 && ptr2) {
-    ptr1 = ptr1.next;
-    ptr2 = flag === 0 ? ptr2.next.next : ptr2.next;
+  while (ptr1 && ptr2) {
+    if (flag === 1 && ptr2 === ptr1) {
+      return ptr1;
+    }
 
-    if (ptr1 === ptr2) {
-      if (flag === 0) {
-        flag = 1
-        ptr2 = head;
-      } else {
-        return ptr1;
-      }
+    ptr1 = ptr1.next;
+    ptr2 = flag === 0 ? ptr2.next?.next : ptr2.next;
+
+    if (flag === 0 && ptr1 === ptr2) {
+      flag = 1;
+      ptr2 = head;
     }
   }
-  
-  return null; 
+
+  return null;
 }
