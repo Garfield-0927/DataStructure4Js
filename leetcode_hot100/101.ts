@@ -1,3 +1,5 @@
+import { TreeNode } from "./common";
+
 function isSymmetric(root: TreeNode | null): boolean {
   if (!root) {
     return false;

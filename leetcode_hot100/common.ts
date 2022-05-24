@@ -1,4 +1,4 @@
-class TreeNode {
+export class TreeNode {
   val: number;
   left: TreeNode | null;
   right: TreeNode | null;
@@ -13,11 +13,23 @@ class TreeNode {
   }
 }
 
-class ListNode {
-  val: number
-  next: ListNode | null
+export class ListNode {
+  val: number;
+  next: ListNode | null;
   constructor(val?: number, next?: ListNode | null) {
-      this.val = (val===undefined ? 0 : val)
-      this.next = (next===undefined ? null : next)
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
   }
+}
+
+const testTree = new TreeNode(1, null, null);
+testTree.left = new TreeNode(
+  2,
+  new TreeNode(3, null, null),
+  new TreeNode(4, null, null)
+);
+testTree.right = new TreeNode(5, null, new TreeNode(6, null, null));
+
+export {
+  testTree
 }

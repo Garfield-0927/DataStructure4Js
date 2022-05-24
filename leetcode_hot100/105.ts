@@ -8,6 +8,8 @@
  * inOrder:  [ [root.left], root, [root.right] ]
  */
 
+import { TreeNode } from "./common";
+
 function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
   if (!preorder.length || !inorder.length) {
     return null;

@@ -1,3 +1,5 @@
+import { ListNode } from "./common";
+
 function getIntersectionNode(
   headA: ListNode | null,
   headB: ListNode | null
