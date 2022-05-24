@@ -30,6 +30,19 @@ testTree.left = new TreeNode(
 );
 testTree.right = new TreeNode(5, null, new TreeNode(6, null, null));
 
-export {
-  testTree
-}
+const testLinkedList = new ListNode(
+  -1,
+  new ListNode(5, new ListNode(3, new ListNode(4, new ListNode(0, null))))
+);
+
+const traverseLinkedList = (node: ListNode | null) => {
+  if (!node) return;
+
+  while (node) {
+    console.log(node.val);
+
+    node = node.next;
+  }
+};
+
+export { testTree, testLinkedList, traverseLinkedList };
