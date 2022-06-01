@@ -45,4 +45,37 @@ const traverseLinkedList = (node: ListNode | null) => {
   }
 };
 
+const traverseTreeByLevel = (node: TreeNode) => {
+  const q: TreeNode[] = [];
+  q.push(node);
+
+  const res: number[][] = [];
+  let curNum = 1;
+  let nodeNum = 0;
+  while (q.length) {
+    const tmp = [];
+    while (curNum) {
+      const node = q.shift()!;
+      tmp.push(node.val);
+      if (node.left) {
+        q.push(node.left);
+        nodeNum++;
+      }
+      if (node.right) {
+        q.push(node.right);
+        nodeNum++;
+      }
+      curNum--;
+    }
+    curNum = nodeNum;
+    nodeNum = 0;
+    res.push(tmp);
+  }
+  console.log(res);
+
+  return res;
+};
+
+traverseTreeByLevel(testTree);
+
 export { testTree, testLinkedList, traverseLinkedList };
