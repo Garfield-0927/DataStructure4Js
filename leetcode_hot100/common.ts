@@ -53,7 +53,7 @@ const traverseTreeByLevel = (node: TreeNode) => {
   let curNum = 1;
   let nodeNum = 0;
   while (q.length) {
-    const tmp = [];
+    const tmp: any[] = [];
     while (curNum) {
       const node = q.shift()!;
       tmp.push(node.val);
