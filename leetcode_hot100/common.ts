@@ -76,6 +76,12 @@ const traverseTreeByLevel = (node: TreeNode) => {
   return res;
 };
 
-traverseTreeByLevel(testTree);
+// traverseTreeByLevel(testTree);
 
-export { testTree, testLinkedList, traverseLinkedList };
+const bst = new TreeNode(
+  4,
+  new TreeNode(2, new TreeNode(1, null, null), new TreeNode(3, null, null)),
+  new TreeNode(5, null, null)
+);
+
+export { testTree, testLinkedList, traverseLinkedList, bst };
