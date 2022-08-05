@@ -5,7 +5,7 @@ function minNumber(nums: number[]): string {
       if (a[0] !== b[0]) {
         return a[0] > b[0] ? 1 : -1;
       }
-
+      
       return a.concat(b) > b.concat(a) ? 1 : -1;
     })
     .join('');
